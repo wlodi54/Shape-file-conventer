@@ -1,0 +1,111 @@
+﻿
+
+
+<div class="jumbotron">
+    
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                    <label class="btn btn-primary input-group-btn btn-file">
+                        Browse <span class="glyphicon glyphicon-upload"></span><input type="file" id="fileUpload" style="display: none"/>
+                    </label>
+                        <input id="fileUploadNameLabel" type="text" class="form-control" readonly/>
+                    </div>
+                    
+                    <small id="uploadFileInfo" class="text-muted">Please choose compressed .zip file with shape files.</small>
+                </div>
+                <input class="btn  btn-success btn-file" id="fileUploadBtn" type="button" value="Upload file" />
+                
+                
+            
+            </form>
+        </div>
+    </div>
+   
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h3 class="text-center">Details</h3>
+        <br/>
+        <table class="table">
+            <tr>
+                <th scope="row">
+                    Country name:  
+                </th> 
+                <td>
+                    <p class="text-right" id="nameFeature">Please generate a map</p> 
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Longitude:  
+                </th>
+                <td>
+                    <p class="text-right" id="longitudeFeature">----</p> 
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Latitude:  
+                </th>
+                <td>
+                    <p class="text-right" id="latitudeFeature">----</p> 
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Region:  
+                </th>
+                <td>
+                    <p class="text-right" id="regionFeature">----</p> 
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    Subregion:  
+                </th>
+                <td>
+                    <p class="text-right" id="subRegionFeature">----</p> 
+                </td>
+            </tr>
+
+        </table>
+        
+
+        
+    </div>
+    <div class="col-md-8">
+        
+        <h3 class="text-center">Map</h3>
+        <br/>
+        <div class="row">
+            <div class="">
+                
+                <div class="loader-section col-md-offset-5 col-md-2 col-sm-offset-5 col-sm-2 text-center" style="display: none">
+                </div>
+            </div>
+        </div> 
+        
+        
+            <div id="map">
+                
+            </div>
+     </div>
+</div>
+<script >
+    
+    $(document).ready(function () {
+
+        createEmptyMap();
+            $('input[type="file"]').change(function(e){
+                var fileName = e.target.files[0].name;
+                $('#fileUploadNameLabel').attr('value', fileName);
+            });
+        
+        $('#fileUploadBtn').on('click',
+            function () { ajaxRequest(); });
+    });
+</script>
