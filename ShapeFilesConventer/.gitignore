@@ -16,7 +16,11 @@ x64/
 [Oo]bj/
 # build folder is nowadays used for build scripts and should not be ignored
 #build/
-
+Global.asax
+Global.asax.cs
+Web.config
+*.config
+ShapeFilesConventer.csproj
 # NuGet Packages
 *.nupkg
 # The packages folder can be ignored because of Package Restore
